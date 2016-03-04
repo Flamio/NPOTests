@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E07A695E-EABE-404C-B3C6-D986FDE334FF}</ProjectGuid>
+    <ProjectGuid>{DF2CCA8F-B74C-4356-AE4D-0D6E329C3C3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Task1UnitTesting</RootNamespace>
-    <AssemblyName>Task1UnitTesting</AssemblyName>
+    <RootNamespace>Task2Tests</RootNamespace>
+    <AssemblyName>Task2Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -46,13 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NPOTesting\Task1.csproj">
-      <Project>{162e4e59-f7a8-49d7-8235-d652bed88f93}</Project>
-      <Name>Task1</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Task2\Task2.csproj">
+      <Project>{7afccd3f-4124-44ef-925f-81308701b907}</Project>
+      <Name>Task2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task1
+namespace Task2
 {
     public class MainModel
     {
@@ -28,24 +28,31 @@ namespace Task1
                 return;
             }
 
-            data.RemoveAt(0);
-
             Parser parser = new Parser(data);
-
-            var matrix = parser.getMatrix();
-
-            matrix.replaceRows();
-            matrix.replaceColumns();
+            var graph = parser.getGraph();
+            var path = graph.getShortestPath(parser.getSource(), parser.getDestination());
 
             try
             {
-                _fileSource.saveTextData(matrix.toText());
+                _fileSource.saveTextData(pathToText(path));
             }
             catch (Exception)
             {
                 ioError();
             }
 
+        }
+
+        private List<string> pathToText(List<int> path)
+        {
+            List<string> text = new List<string>();
+            string textString = "";
+            for (int i =0;i<path.Count;i++)
+            {
+                textString+=(Convert.ToString(path[i]) + ((i == path.Count - 1) ? "" : " "));
+            }
+            text.Add(textString);
+            return text;
         }
 
         public event Action ioError;
