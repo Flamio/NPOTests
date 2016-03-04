@@ -32,6 +32,8 @@ namespace Task2
             }
         }
 
+        private int depth = 0;
+
         public void getPathes(int source, int destination)
         {
            
@@ -44,7 +46,7 @@ namespace Task2
             }
             catch (Exception)
             {
-                //pathes.Clear();
+                path.Clear();
                 return;
             }
 
@@ -54,15 +56,17 @@ namespace Task2
 
                 List<int> copyPath = new List<int>(path);
                 pathes.Add(copyPath);
-                path.Clear();
+                path.RemoveRange(depth-1,path.Count-depth+1);
             }
             else
             {
                 foreach (var dest in allDestFromSource)
                 {
+                    depth ++;
                     getPathes(dest, destination);
                 }
             }
+            depth --;
         }
 
         public List<int> getShortestPath(int source, int destination)
